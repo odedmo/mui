@@ -1,8 +1,10 @@
 import { Container, CssBaseline, Grid, Typography } from '@mui/material';
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './theme';
 
 function App() {
   return (
-    <>
+    <ThemeProvider theme={theme}>
       <CssBaseline />
       <Container maxWidth={false}>
         <Grid
@@ -29,7 +31,7 @@ function App() {
               sx={{
                 border: '1px solid grey',
                 height: 600,
-                backgroundColor: '#e481ff',
+                backgroundColor: 'secondary.main',
               }}
             >
               <Typography variant='h2'>MUI and React Setup</Typography>
@@ -37,7 +39,7 @@ function App() {
           </Grid>
         </Grid>
       </Container>
-    </>
+    </ThemeProvider>
   );
 }
 
