@@ -1,46 +1,32 @@
-import { Container, CssBaseline, Grid, Typography } from '@mui/material';
-import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme';
+import styled from "@emotion/styled";
+import { Box, CssBaseline, Paper, Typography } from "@mui/material";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./theme";
 
-function App() {
+const StyledTypography = styled(Typography)(({ theme: Theme }) => ({
+  color: theme.palette.primary.dark
+}));
+
+const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Container maxWidth={false}>
-        <Grid
-          container
-          justifyContent='center'
-          alignItems='center'
-          sx={{ height: '100vh', border: '1px solid #9eff49' }}
+      <Box
+        height="100vh"
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        flexDirection="column"
+      >
+        <Paper
+          elevation={3}
+          sx={{ padding: "1rem", backgroundColor: "secondary.light" }}
         >
-          <Grid item container maxWidth='70vw'>
-            <Grid
-              item
-              xs={6}
-              sx={{
-                border: '1px solid grey',
-                height: 600,
-                backgroundColor: '#d6fff9',
-              }}
-            >
-              <Typography variant='h2'>Welcome To</Typography>
-            </Grid>
-            <Grid
-              item
-              xs={6}
-              sx={{
-                border: '1px solid grey',
-                height: 600,
-                backgroundColor: 'secondary.main',
-              }}
-            >
-              <Typography variant='h2'>MUI and React Setup</Typography>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Container>
+          <StyledTypography variant="h1">Starter App</StyledTypography>
+        </Paper>
+      </Box>
     </ThemeProvider>
   );
-}
+};
 
 export default App;
